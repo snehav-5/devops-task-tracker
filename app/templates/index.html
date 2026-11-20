@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>DevOps Task Tracker</title>
+  <style>
+    body{font-family:Arial,sans-serif;max-width:560px;margin:40px auto;padding:0 16px}
+    form{display:flex;gap:8px;margin-bottom:20px}
+    input[type=text]{flex:1;padding:8px}
+    button{padding:8px 14px;cursor:pointer}
+    li{padding:8px 0;border-bottom:1px solid #ddd;display:flex;justify-content:space-between}
+    .done{text-decoration:line-through;color:#888}
+    a{margin-left:8px;font-size:14px}
+  </style>
+</head>
+<body>
+  <h1>DevOps Task Tracker</h1>
+  <form action="/add" method="post">
+    <input type="text" name="title" placeholder="New task..." required>
+    <button type="submit">Add</button>
+  </form>
+  <ul style="list-style:none;padding:0">
+    {% for t in tasks %}
+    <li>
+      <span class="{{ 'done' if t.done else '' }}">{{ t.title }}</span>
+      <span><a href="/toggle/{{ t.id }}">{{ 'Undo' if t.done else 'Done' }}</a><a href="/delete/{{ t.id }}">Delete</a></span>
+    </li>
+    {% else %}
+    <li>No tasks yet.</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>
