@@ -24,3 +24,4 @@ commit/push -> Build & Test -> Docker build & push (GHCR) -> Deploy with Docker 
 3. `git clone <repo-url> ~/devops-task-tracker && cd ~/devops-task-tracker && cp .env.example .env`
 4. `docker compose up -d --build` then open `http://<EC2-PUBLIC-IP>:5000`
 5. For automatic deployment add repo secrets `EC2_HOST`, `EC2_USER` (ubuntu), `EC2_SSH_KEY` (private key contents).
+AWS EC2 deployment test completed.
